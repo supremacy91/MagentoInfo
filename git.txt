@@ -1,0 +1,40 @@
+cat /proc/cpuinfo - информация о процессорах системы
+ctrl + D - возможно выходит из режима набора в консоли Ubuntu
+
+sudo dpkg --configure -a - дебажит багнутый процесс установки
+
+pkexec chmod 440 /etc/sudoers.d/README
+pkexec chmod 755 /etc/sudoers.d
+
+systemctl status apache2.service
+
+
+git status - статус на данный момент
+git log - выводит историю коммитов
+git log -p - в логе коммитов будут указаны изменения
+git clean -d -f -удаляет все untracked файлы и директории
+git branch -d name Удаляет ветку name
+git checkout -b name создает и прыгает на ветку name
+git merge name сливает текущую ветку с веткой name
+git branch name создает ветку name
+git branch name origin/master1 создает ветку name и загружает в нее ветку master1 по ссылке origin
+git remote Чтобы просмотреть, какие удалённые серверы уже настроены
+git remote -v Чтобы посмотреть, какому URL соответствует сокращённое имя в Git
+git remote rename name1 name2 переименовует ссылку
+git remote rm name удаляет ссылку
+git remote rm origin удаляет ссылку на репозиторий
+git diff  непроиндексированные изменения относительно последней индексации или коммита
+git diff --cached проиндексированные изменения оттносительно последнего коммита
+git commit -a --amend заменяет последний коммит
+git reset --soft HEAD^ убирает последний коммит оставляя изменения
+git reset --hard HEAD^ убирает последний коммит вместе с изменениями
+git reset HEAD - откатывет индекс к предыдущему или а untracked если такового ранее не было
+git rm name удаляет файл с директоии
+git rm --cached name удаляет файл с индекса
+git push origin master - заливает в репозиторий
+
+
+sudo rm -R -d name -удаляет рекурсивно директорию с файлами
+sudo rm -R -d name/* -удаляет рекурсивно файлы с директории
+
+Roger Shah and Signum – Healesville Sanctuary
