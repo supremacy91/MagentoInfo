@@ -1,7 +1,11 @@
 -app
   -code
     -core
+       -Mage
+       -Zend
     -comunity
+       -Phoenix
+       -Cm
     -local
   -design
     -adminhtml
@@ -231,10 +235,12 @@ Core/Controller/Varien/Router
 Cms/Controller/Router
 
 ------------------------------------------------------------------------------------------------------------------------
-/lib/Varien/Data/Form/Element/ - рендереры, какие поля бывают для формы
+
+/lib/Varien/Data/Form/Element/ - рендереры, какие поля бывают для форм
 
 /Mage/Adminhtml/Block/Widget/Grid/Column/Renderer/ - классы с типами колонок для грида. Указываются в "type" в array()
 
+/Mage/Adminhtml/Model/System/Config/Source/Yesno - пример базового класса для <source_model></source_model>, который выводит селект Yes/No
 
 getTableName() - только на обьекте Mage_Core_Model_Resource
 Mage::getSingleton('core/resource')->getTableName('cmsMenu/relation'); 

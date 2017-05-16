@@ -23,6 +23,7 @@ git remote -v Чтобы посмотреть, какому URL соответс
 git remote rename name1 name2 переименовует ссылку
 git remote rm name удаляет ссылку
 git remote rm origin удаляет ссылку на репозиторий
+git remote add origin https://github.com/supremacy91/testnext.git - добавляет удаленный сервер
 git diff  непроиндексированные изменения относительно последней индексации или коммита
 git diff --cached проиндексированные изменения оттносительно последнего коммита
 git commit -a --amend заменяет последний коммит

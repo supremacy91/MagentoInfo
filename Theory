@@ -39,4 +39,4 @@ System->Permisions->Users - создание самих пользователе
 "adminhtml/page_head"  потому что он наследует Mage/Page/Block/Html/Head.php
 css файлы всегда берутся только из самой темы
 Js файлы могут браться глобально из папки js корня магенты (метод addJs) либо из темы(метод addItem)
-
+Корневые методы addJs addItem addCss определены в Mage/Page/Block/Html
