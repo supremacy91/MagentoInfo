@@ -32,7 +32,7 @@ Mage_Core_Model_Resource_Db_Abstract extends Mage_Core_Model_Resource_Abstract
 Mage_Core_Model_Resourse_Db_Collection_Abstract модель коллекции
 Varien_Data_Collection_Db - Этот класс является фундаментом для всех коллекций в Magento.
 (abstract class Mage_Core_Model_Resource_Db_Collection_Abstract extends Varien_Data_Collection_Db
-Varien_Data_Collection_Db extends Varien_Data_Collection )
+Varien_Data_Collection_Db extends Varien_Data_Collection implements IteratorAggregate, Countable)
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -83,6 +83,15 @@ Varien_Object
 Вставить статичный блок на CMS страницу в Magento
 {{block type="cms/block" block_id="baner_block"}}
 
+Передать данные из контроллера в блок
+$newsId = Mage::app()->getRequest()->getParam('id', 0);
+$news = Mage::getModel('dsnews/news')->load($newsId);
+$this->getLayout()->getBlock('news.content')->assign(array(
+                "newsItem" => $news,
+            ));
+Получение хендлеров для метода в контроллере
+$this->loadLayout();
+       $layoutHandles = $this->getLayout()->getUpdate()->getHandles();
 ------------------------------------------------------------------------------------------------------------------------
 
 Гриды
@@ -131,7 +140,7 @@ $customers = $read->query("select * from customer_entity");
 ------------------------------------------------------------------------------------------------------------------------
 
 Get resource instance:
-_getResource() - в бизнес моделе Mage::getResourceSingleton($this->_resourceName);
+getResource() - в бизнес моделе -> protected function _getResource() -> Mage::getResourceSingleton($this->_resourceName);
 getResource() - в классе коллекции Mage::getResourceModel($this->getResourceModelName())
 
 Get request/response instance:
@@ -280,5 +289,15 @@ to this collections. And you are able to use it to add specific selected value.
 
 ------------------------------------------------------------------------------------------------------------------------
 
+public function __()
+    {
+        $args = func_get_args();
+        $expr = new Mage_Core_Model_Translate_Expr(array_shift($args), $this->_getRealModuleName());
+        array_unshift($args, $expr);
+        return Mage::app()->getTranslator()->translate($args);
+    }
 
-
+1) Mage_Core_Controller_Front_Action
+2) Mage_Adminhtml_Controller_Action
+3) Mage_Core_Block_Abstract
+4) Mage_Core_Helper_Abstract

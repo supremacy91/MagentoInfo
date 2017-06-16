@@ -8,7 +8,6 @@ pkexec chmod 755 /etc/sudoers.d
 
 systemctl status apache2.service
 
-
 git status - статус на данный момент
 git log - выводит историю коммитов
 git log -p - в логе коммитов будут указаны изменения
@@ -26,7 +25,9 @@ git remote rm origin удаляет ссылку на репозиторий
 git remote add origin https://github.com/supremacy91/testnext.git - добавляет удаленный сервер
 git diff  непроиндексированные изменения относительно последней индексации или коммита
 git diff --cached проиндексированные изменения оттносительно последнего коммита
-git commit -a --amend заменяет последний коммит
+git commit --amend заменяет последний коммит
+git checkout <имя файла>/. отменяет не проинедксированные изменения в файле/во всех файлах, но толкьо в том случае, если файлы находятся под версионным контролем (не untracked)
+git reset 
 git reset --soft HEAD^ убирает последний коммит оставляя изменения
 git reset --hard HEAD^ убирает последний коммит вместе с изменениями
 git reset HEAD - откатывет индекс к предыдущему или а untracked если такового ранее не было

@@ -12,3 +12,16 @@ eav_entity_type - хранит EAV сущности
 eav_attribute - таблица, которая хранит аттрибуты EAV сущностей 
 core_config_data - таблица, куда сериализуются данные
 sales_flat_quote_item - здесь хранятся продукты попавшые в checkout
+
+------------------------------------------------------------------------------------------------------------------------
+
+While similar to the global config, the system configuration information is stored separately. If you need to view the system config file, it exists as it’s own entity. You can view the entire system config by executing the following PHP code from any controller action
+
+//header('Content-Type: text/xml');            
+header('Content-Type: text/plain');            
+echo $config = Mage::getConfig()
+->loadModulesConfiguration('system.xml')        
+->getNode()
+->asXML();            
+exit;
+

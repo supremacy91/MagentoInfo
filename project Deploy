@@ -1,0 +1,26 @@
+ssh mysa.it -lmysa.it -p2201 - соединение c каталогом сервера по SSH через консоль
+pwd - когда находимся в каталоге сервера, то эт ой командой можем посмотреть текущую директорию
+ls - команда, отображающая список файлов и подкатологов, находящихся в конкретном каталоге 
+
+mysql -u<имя пользователя БД> -p<пароль для укаанного пользователя> - в случае с root/root Будет mysql -uroot -proot
+после этой команды можем напрямую писать запросы в СУБД через консоль
+create database mysa_prod;
+grant all privileges on mysa_prod.* to mysa_prod_user@localhost identified by 'San7398!';
+show warnings - показывает варнинги СУБД запроса
+exit;
+открываем файл local.xml в etc -  и там настройки соединения с БД. Они фигурируют в команде ниже
+mysql -u<username> -p<password> <dbname><<дамп Д, который мы импортим>
+в случае с проектом mysa :  mysql -umysa_prod_user -pSan7398\! mysa_prod<mysa.sql
+все символы, отличные от букв/цифр, экранируются слешем 
+
+в heidy_sql запрос
+select * from mg3v_core_config_data where path like "web%"
+в следующих 2х значениях path результирющей таблицы меняем value на значение url сайта на локальном хосте (в нашем случае поменяли на http://ribatsuga.loc/)
+1й path) web/unsecure/base_url
+2й path) web/secure/base_url
+
+создаем в папке с проектом директории var/ и media/, если их нет. Даем им полные права
+
+mysql -uroot -proot - запустить mysql консоль
+mysql> show variables показать текущие настройки mysql;
+
